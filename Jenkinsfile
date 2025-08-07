@@ -14,10 +14,15 @@ pipeline {
                 sh 'mvn clean package'
             }
         }    
-        stage('2. Docker 버전 확인 ') {
+        stage('2. Docker 버전 확인') {
             steps {
                 sh 'docker version'
             }
         }   
+        stage('3. Docker Build (이미지 생성)') {
+            steps {
+                sh 'docker build -t ex02-app:latest'
+            }
+        }        
     }
 }
